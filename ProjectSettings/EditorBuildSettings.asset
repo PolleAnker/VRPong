@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Bar.unity
     guid: 59262fb437205324e9dc32d51dc6bb92
   - enabled: 1
-    path: Assets/Scenes/HouseParty.unity
+    path: Assets/Scenes/Arena.unity
     guid: a8c3760b88113aa4b928c1fae32a43b7
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 1c3c4258b2668d64eac87140df857a0e, type: 2}
