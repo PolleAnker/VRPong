@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: bd9481e14b1bd3d41aef7777c164aff8
+guid: 42a78d136bcfbff4c8e7e835abd85438
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bottom
+    second: {fileID: 2100000, guid: e97ed9338e35d654089de7c129d3c502, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cylinder
+    second: {fileID: 2100000, guid: 5cd2011ad54067c4ab9dc205e8e528e1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -17,8 +27,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: room_14_80
-    second: {fileID: 2100000, guid: b25c738fea5efab4ab539e8f5332899f, type: 2}
+      name: room_17_98
+    second: {fileID: 2100000, guid: fed4da58b5ba8644e9c290761a9eb589, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: room_19_101
+    second: {fileID: 2100000, guid: 77aaa6cd9daf8b74caf786abb9f1e472, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: top
+    second: {fileID: 2100000, guid: a582c9b7cdce06b4e8e8b76976bf3df1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -80,7 +100,7 @@ ModelImporter:
     importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
