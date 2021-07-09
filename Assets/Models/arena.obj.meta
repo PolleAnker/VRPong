@@ -745,7 +745,7 @@ ModelImporter:
       name: white
     second: {fileID: 2100000, guid: 9288209034f45574a9b7c2aa8b8c714d, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
