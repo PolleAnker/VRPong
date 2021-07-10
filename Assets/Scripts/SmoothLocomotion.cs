@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
@@ -29,6 +29,7 @@ public class SmoothLocomotion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+            // Get and use a device with an input, and return the Vector2 inputAxis
             InputDevice device = InputDevices.GetDeviceAtXRNode(inputSource);
             device.TryGetFeatureValue(CommonUsages.primary2DAxis, out inputAxis);
 
@@ -38,21 +39,20 @@ public class SmoothLocomotion : MonoBehaviour
     {
             CapsuleFollowHMD();
 
-            Quaternion headYaw = Quaternion.Euler(0, rig.cameraGameObject.transform.eulerAngles.y, 0);
-            Vector3 direction = headYaw * new Vector3(inputAxis.x, 0, inputAxis.y);
-            character.Move(direction * Time.fixedDeltaTime * speed);
+            Quaternion headYaw = Quaternion.Euler(0, rig.cameraGameObject.transform.eulerAngles.y, 0);  // Find look direction
+            Vector3 direction = headYaw * new Vector3(inputAxis.x, 0, inputAxis.y); // Movement direction is the input multiplied by the look direction
+            character.Move(direction * Time.fixedDeltaTime * speed);    // Move in direction given by InputDevice at inputSource
 
             // Gravity implementation
-            /*
+            //bool grounded = CheckIfGrounded();
             if(CheckIfGrounded())
             {
                 fallingSpeed = 0;
             }
             else
             {
-                fallingSpeed += gravity * Time.fixedDeltaTime;
+                fallingSpeed += gravity * Time.fixedDeltaTime;  // Gradual increase in fall speed over time
             }
-            */
             character.Move(Vector3.up * fallingSpeed * Time.fixedDeltaTime);
     }
 
@@ -68,8 +68,8 @@ public class SmoothLocomotion : MonoBehaviour
 
     private bool CheckIfGrounded()
     {
-        Vector3 rayStart = transform.TransformPoint(character.center);
-        float rayLength = character.center.y + 0.01f;
+        Vector3 rayStart = transform.TransformPoint(character.center);  // Start raycast from the centre of the character controller
+        float rayLength = character.center.y + 0.01f;   // Shoot ray of the hight of the character + a little bit
         bool isGrounded = Physics.SphereCast(rayStart, character.radius, Vector3.down, out RaycastHit hitInfo, rayLength, groundLayer);
         return isGrounded;
     }
