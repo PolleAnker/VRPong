@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 
 /* Script for handling Smooth Locomotion as movement */
-public class SmoothLocomotion : MonoBehaviour
+public class PlayerControl : MonoBehaviour
 {
     public XRNode inputSource;
     public float speed = 1;
@@ -17,6 +18,7 @@ public class SmoothLocomotion : MonoBehaviour
     private float fallingSpeed;
     private XRRig rig;
     private Vector2 inputAxis;
+    private bool menuBttnPressed;
     private CharacterController character;
 
     // Start is called before the first frame update
@@ -32,6 +34,11 @@ public class SmoothLocomotion : MonoBehaviour
             // Get and use a device with an input, and return the Vector2 inputAxis
             InputDevice device = InputDevices.GetDeviceAtXRNode(inputSource);
             device.TryGetFeatureValue(CommonUsages.primary2DAxis, out inputAxis);
+            device.TryGetFeatureValue(CommonUsages.menuButton, out menuBttnPressed);
+            if(menuBttnPressed)
+            {
+                DisconnectAndGoHome();
+            }
 
     }
 
@@ -72,5 +79,23 @@ public class SmoothLocomotion : MonoBehaviour
         float rayLength = character.center.y + 0.01f;   // Shoot ray of the hight of the character + a little bit
         bool isGrounded = Physics.SphereCast(rayStart, character.radius, Vector3.down, out RaycastHit hitInfo, rayLength, groundLayer);
         return isGrounded;
+    }
+
+    void DisconnectAndGoHome()
+    {
+        StartCoroutine(DisconnectAndLoad());
+    }
+
+    IEnumerator DisconnectAndLoad()
+    {
+        PhotonNetwork.Disconnect();
+        while(PhotonNetwork.IsConnected)
+        {
+            yield return null;
+        }
+
+        SceneManager.LoadScene(0);
+
+
     }
 }
