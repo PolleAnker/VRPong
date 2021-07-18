@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 971604985471903831}
-  - component: {fileID: 8183446957263839686}
+  - component: {fileID: 6451746249648609172}
   m_Layer: 0
   m_Name: RedSide
   m_TagString: Untagged
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 278769074246751561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.8, y: 0.755, z: 8.992}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7240574437616954181}
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8183446957263839686
+--- !u!114 &6451746249648609172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,7 +76,7 @@ MonoBehaviour:
   - {fileID: 6158194725949222438}
   - {fileID: 7757686735491490585}
   - {fileID: 8754293473201080180}
-  cupPrefab: {fileID: 7844995482662654623, guid: 41f8f1a5bc4df5542b31be461935d764, type: 3}
+  cupPrefab: {fileID: 260266033375478508, guid: 394b4f407ce847746b99e0844460586a, type: 3}
   cupParent: {fileID: 278769074246751561}
 --- !u!1 &1217813582843136174
 GameObject:
@@ -372,7 +372,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8194014570173199234}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4930603721681734092}

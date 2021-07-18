@@ -16,11 +16,10 @@ public class PongGame : MonoBehaviour
         Debug.Log("Resetting cup positions");
         for (int i = 0; i < cups.Length; i++)
         {
-            //Debug.Log("Deleting cup" + i);
-            Destroy(cups[i]);
-            //Debug.Log("Instantiating cup " + i);
-            newCup = Instantiate(cupPrefab, new Vector3(basePositions[i].transform.position.x, basePositions[i].transform.position.y, basePositions[i].transform.position.z), Quaternion.identity, cupParent.transform);
-            cups[i] = newCup;
+            Destroy(cups[i]);   // Destroy all current cups
+            // Instantiate a new cup for each one that is destroyed (Quaternion.Euler(-90,0,0) used to be Quaternion.identity)
+            newCup = Instantiate(cupPrefab, new Vector3(basePositions[i].transform.position.x, basePositions[i].transform.position.y, basePositions[i].transform.position.z), Quaternion.Euler(-90,0,0), cupParent.transform);
+            cups[i] = newCup;   // Keep reference to it in the "cups" list
         }
         Debug.Log("Positions reset!");
     }
